@@ -1,0 +1,37 @@
+{
+  "name": "quickmark",
+  "productName": "Quick Mark",
+  "version": "1.0.0",
+  "description": "Quick Mark screenshot annotator for Windows",
+  "author": "Ireground",
+  "main": "app/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis portable --x64 --publish never"
+  },
+  "dependencies": {
+    "pptxgenjs": "3.12.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.ireground.quickmark",
+    "productName": "Quick Mark",
+    "directories": { "buildResources": "build", "output": "dist" },
+    "files": ["app/**/*", "package.json"],
+    "protocols": [{ "name": "Quick Mark link", "schemes": ["quickmark"] }],
+    "win": { "icon": "build/icon.ico", "artifactName": "QuickMark-${version}-${arch}.${ext}" },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Quick Mark",
+      "artifactName": "QuickMark-Setup-${version}.${ext}"
+    },
+    "portable": { "artifactName": "QuickMark-Portable-${version}.${ext}" }
+  }
+}
