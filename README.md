@@ -3,7 +3,7 @@
 Desktop version of Quick Mark, the screenshot annotation app for tutorials.
 
 **Download:** go to [Releases](../../releases/latest) and get
-- `QuickMark-Setup-x.x.x.exe` — installs it with a Start menu and desktop shortcut
+- `QuickMark-x.x.x-Windows.zip` — unzip to a folder you'll keep, run `Quick Mark.exe`, pin it to the taskbar
 - `QuickMark-Portable-x.x.x.exe` — runs without installing
 
 Windows may show "Windows protected your PC" the first time (the app isn't code-signed). Click **More info → Run anyway**.

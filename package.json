@@ -1,13 +1,13 @@
 {
   "name": "quickmark",
   "productName": "Quick Mark",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Quick Mark screenshot annotator for Windows",
   "author": "Ireground",
   "main": "app/main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder --win nsis portable zip --x64 --publish never"
+    "dist": "electron-builder --win portable zip --x64 --publish never"
   },
   "dependencies": {
     "pptxgenjs": "3.12.0"
@@ -38,15 +38,6 @@
     "win": {
       "icon": "build/icon.ico",
       "artifactName": "QuickMark-${version}-Windows.${ext}"
-    },
-    "nsis": {
-      "oneClick": true,
-      "perMachine": false,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true,
-      "shortcutName": "Quick Mark",
-      "runAfterFinish": true,
-      "artifactName": "QuickMark-Setup-${version}.${ext}"
     },
     "portable": {
       "artifactName": "QuickMark-Portable-${version}.${ext}"
