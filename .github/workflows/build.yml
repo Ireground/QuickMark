@@ -23,11 +23,13 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: QuickMark-Windows
-          path: dist/*.exe
+          path: |
+            dist/*.exe
+            dist/*.zip
       - name: Publish to the Releases page
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete latest -y --cleanup-tag || true
-          gh release create latest dist/*.exe --title "Quick Mark for Windows" --notes "Download QuickMark-Setup to install, or QuickMark-Portable to run without installing."
+          gh release create latest dist/*.exe dist/*.zip --title "Quick Mark for Windows" --notes "QuickMark-Setup installs it. QuickMark-Windows.zip: unzip anywhere and run Quick Mark.exe. QuickMark-Portable runs without installing."

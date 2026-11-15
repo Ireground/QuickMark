@@ -112,6 +112,9 @@ if (!app.requestSingleInstanceLock()) {
 
   if (process.defaultApp && process.argv.length >= 2) {
     app.setAsDefaultProtocolClient(LINK_SCHEME, process.execPath, [path.resolve(process.argv[1])]);
+  } else if (process.env.PORTABLE_EXECUTABLE_FILE) {
+    // portable .exe unpacks to a temp folder each run, so register the real .exe instead
+    app.setAsDefaultProtocolClient(LINK_SCHEME, process.env.PORTABLE_EXECUTABLE_FILE, []);
   } else {
     app.setAsDefaultProtocolClient(LINK_SCHEME);
   }
